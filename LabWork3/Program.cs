@@ -7,24 +7,39 @@ using static LabWorks.Common.Helpers.ConsoleIOHelper;
 object m_sumLock = new object();
 
 PrintCenter("Lab Work 3", ConsoleColor.Green);
+Print("You can use the text files in a Data folder in this project.", ConsoleColor.Yellow);
+Print("Please enter the path to the folder:", ConsoleColor.Blue);
+
+string pathToFolder = Console.ReadLine();
+
+int fileCount = 0;
+
+string[] files = null;
+
+try
+{
+    files = Directory.GetFiles(pathToFolder);
+    fileCount = files.Length;
+}
+catch (Exception ex)
+{
+    Print($"An error occurred! Error: {ex.Message}", ConsoleColor.Red);
+    return;
+}
+
+Print("Please enter the word for search:", ConsoleColor.Yellow);
+string wordForSearch = Console.ReadLine();
 
 Print("Creating Work Queue...", ConsoleColor.Green);
 
-string wordForSearch = "технология";
-
-int fileCount = 5;
 int totalWordCount = 0;
-string pathToExe = AppDomain.CurrentDomain.BaseDirectory;
-string pathToFiles = pathToExe + Path.DirectorySeparatorChar + "Data";
 
 IWorkingQueue<WordCountResult, int> workingQueue = new WorkingQueue<WordCountResult, int>(fileCount);
 
 for (int i = 0; i < fileCount; i++)
 { 
     int fileId = i + 1;
-    string pathToFile = pathToFiles +
-        Path.DirectorySeparatorChar + $"Text{fileId}.txt";
-    SearchArgs searchArgs = new SearchArgs() { PathToFile = pathToFile, Word = wordForSearch };
+    SearchArgs searchArgs = new SearchArgs() { PathToFile = files[i], Word = wordForSearch };
     workingQueue.Enqueue(Search, searchArgs, GetResult);
 }
 
@@ -71,6 +86,7 @@ void Search(object args, out WordCountResult countResult)
     }
 
     countResult.Result = total;
+    countResult.FileName = Path.GetFileName(pathToFile);
 }
 
 void GetResult(WordCountResult wordCountResult)
@@ -83,7 +99,8 @@ void GetResult(WordCountResult wordCountResult)
         {
             totalWordCount += wordCountResult.Result;
         }
-        Print($"Thread: {wordCountResult.Name} finished. Result: {wordCountResult.Result} ", ConsoleColor.Yellow);
+        Print($"Thread: {wordCountResult.Name} finished. Result: {wordCountResult.Result} File: {wordCountResult.FileName}",
+            ConsoleColor.Yellow);
     }
     else
     {
