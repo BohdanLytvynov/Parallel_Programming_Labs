@@ -189,3 +189,5 @@ _NCrunch*
 
 /LabWork1/.vs
 /LabWork2/.vs
+!LabWork3\bin\Debug\net9.0\Data
+!LabWork3\bin\Release\net9.0\Data
