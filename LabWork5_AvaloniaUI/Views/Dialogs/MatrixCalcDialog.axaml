@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="350" d:DesignHeight="160"
+        xmlns:vm="clr-namespace:LabWork5_AvaloniaUI.ViewModels.Dialogs"
+        x:Class="LabWork5_AvaloniaUI.MatrixCalcDialog"
+        x:DataType="vm:DialogViewModel"
+        Width="350" Height="160"
+        Title="{Binding Title}">
+  <Design.DataContext>
+	  <vm:DialogViewModel/>
+  </Design.DataContext>
+
+<StackPanel Orientation="Vertical">
+	<Border Classes="DialogHeaderWrapper">
+		<TextBlock Text="{Binding Header, UpdateSourceTrigger=PropertyChanged}"
+        FontSize="24"
+        Foreground="{Binding HeaderForeground, UpdateSourceTrigger=PropertyChanged}"
+        TextAlignment="Center"/>
+    </Border>
+    <TextBlock HorizontalAlignment="Center"
+    Text="{Binding Message, 
+    UpdateSourceTrigger=PropertyChanged}"
+    FontSize="20" Margin="5"
+    TextWrapping="Wrap"/>
+    <Button Content="OK" FontSize="22" 
+            HorizontalAlignment="Center"
+            Command="{Binding OkCommand}"
+            Margin="0,3,0,0"/>
+</StackPanel>
+
+</Window>

@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:LabWork5_AvaloniaUI.ViewModels.Dialogs" 
+        x:DataType="vm:ProgressDialogViewModel"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="150"
+        x:Class="LabWork5_AvaloniaUI.ProgressDialog"
+        WindowStartupLocation="CenterScreen"
+        SystemDecorations="None"
+        Title="{Binding Title}"
+        Width="400"
+        Height="150"
+        >
+  
+    <Design.DataContext>
+		<vm:ProgressDialogViewModel/>
+    </Design.DataContext>
+    <StackPanel>
+    <Border Classes="DialogHeaderWrapper">
+	    <TextBlock Text="{Binding Header, UpdateSourceTrigger=PropertyChanged}"
+        FontSize="20"
+        TextAlignment="Center"/>
+    </Border>
+        <TextBlock Text="Please Wait..." FontSize="20"
+                   TextAlignment="Center"
+                   Margin="0,3,0,0"/>
+    <ProgressBar Value="{Binding Progress, 
+    UpdateSourceTrigger=PropertyChanged}" Minimum="0"
+                 Maximum="100"
+                 Height="20"
+                 Margin="10,3,10,0"/>
+        <Button Margin="0,20,0,0" Content="Cancel"
+                FontSize="22"
+                HorizontalAlignment="Center"
+                Command="{Binding CancelCommand}"/>
+    </StackPanel>
+</Window>
