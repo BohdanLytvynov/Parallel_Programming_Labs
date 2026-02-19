@@ -17,6 +17,21 @@
             Console.ResetColor();
         }
 
+        public static void Print(string msg, object lockObject,
+            ConsoleColor foreground,
+            ConsoleColor background = ConsoleColor.Black)
+        {
+            if (msg == null) throw new ArgumentNullException(nameof(msg));
+
+            lock (lockObject)
+            {
+                Console.ForegroundColor = foreground;
+                Console.BackgroundColor = background;
+                Console.WriteLine(msg);
+                Console.ResetColor();
+            }
+        }
+
         public static void PrintCenter(string msg,
             ConsoleColor foreground,
             ConsoleColor background = ConsoleColor.Black)
@@ -32,8 +47,35 @@
             Print(msg, foreground, background);
         }
 
+        public static void PrintCenter(string msg,
+            object lockObject,
+            ConsoleColor foreground,
+            ConsoleColor background = ConsoleColor.Black)
+        {
+            if (msg == null) throw new ArgumentNullException(nameof(msg));
+
+            var msgLength = msg.Length;
+            var winWidth = Console.WindowWidth;
+
+            var left = (winWidth / 2) - (msgLength / 2);
+            lock (lockObject)
+            {
+                var top = Console.GetCursorPosition().Top;
+                Console.SetCursorPosition(left, top);
+            }
+            Print(msg, lockObject, foreground, background);
+        }
+
         public static bool KeyPressed(ConsoleKey key) =>
             Console.ReadKey().Key == key;
+
+        public static bool KeyPressed(ConsoleKey key, object consoleLock)
+        { 
+            lock(consoleLock)
+            {
+                return Console.ReadKey().Key == key;
+            }
+        }
 
         public static bool KeyPressed(ConsoleKey key, string msg, ConsoleColor color)
         {
@@ -41,10 +83,25 @@
             return KeyPressed(key);
         }
 
+        public static bool KeyPressed(ConsoleKey key, string msg, object lockObject, ConsoleColor color)
+        {
+            Print(msg, lockObject, color);
+            return KeyPressed(key, lockObject);
+        }
+
         public static string Input(string msg, ConsoleColor color)
         {
             Print(msg, color);
             return Console.ReadLine();
+        }
+
+        public static string Input(string msg, object lockObject, ConsoleColor color)
+        {
+            Print(msg, lockObject, color);
+            lock (lockObject)
+            {
+                return Console.ReadLine();
+            }
         }
 
         public static bool Input<Tout>(string msg, ConsoleColor color, out Tout result,

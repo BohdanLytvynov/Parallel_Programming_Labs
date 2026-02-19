@@ -1,0 +1,14 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+		<Border Padding="50"
+                Background="{StaticResource InformationColor}">
+			
+        </Border>
+    </Design.PreviewWith>
+
+  <!-- Add Resources Here -->
+    <Color x:Key="ErrorColor">red</Color>
+    <Color x:Key="WarningColor">orange</Color>
+    <Color x:Key="InformationColor">blue</Color>
+</ResourceDictionary>

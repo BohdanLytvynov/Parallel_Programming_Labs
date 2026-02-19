@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		x:Class="LabWork5_AvaloniaUI.ResultWindow"
+		xmlns:vm="using:LabWork5_AvaloniaUI.ViewModels"
+		x:DataType="vm:ResultViewModel"
+		xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+		xmlns:behaviors="clr-namespace:LabWork5_AvaloniaUI.Behaviors"
+		Title="{Binding Title}">
+
+	<Design.DataContext>
+		<vm:ResultViewModel/>
+	</Design.DataContext>
+	<StackPanel>
+		<Border Classes="DialogHeaderWrapper">
+			<TextBlock Text="{Binding Header, UpdateSourceTrigger=PropertyChanged}"
+					   FontSize="24"
+					   TextAlignment="Center"/>
+		</Border>
+		<Border Classes="MainBorder" Margin="5">
+			<ScrollViewer VerticalScrollBarVisibility="Visible"
+						  HorizontalScrollBarVisibility="Visible">
+				<DataGrid Margin="10" Height="400" Width="800"
+						  AutoGenerateColumns="False"
+						  IsReadOnly="True"
+						  GridLinesVisibility="All"
+						  BorderThickness="1" BorderBrush="Gray"
+						  ItemsSource="{Binding Result}">
+					<i:Interaction.Behaviors>
+						<behaviors:DataGridColumnsBehavior ColumnCount="{Binding Result.Count}" />
+					</i:Interaction.Behaviors>
+				</DataGrid>
+			</ScrollViewer>
+		</Border>
+		<DockPanel FlowDirection="RightToLeft"
+				   Margin="0,0,50,0">
+			<Button Content="OK" FontSize="22"
+					Command="{Binding OkPressedCommand}"/>
+		</DockPanel>
+	</StackPanel>
+</Window>

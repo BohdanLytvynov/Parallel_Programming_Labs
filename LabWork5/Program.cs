@@ -9,11 +9,14 @@ CancellationTokenSource tokenSource = null;
 object m_consoleLock = new object();
 Stopwatch stopwatch = null;
 bool calcFinished = false;
+object goToExitLoc = new object();
+bool goToExit = false;
 matrixCalculator.OnParallelCalculationStarted += MatrixCalculator_OnCalculationStarted;
 matrixCalculator.OnParallelCalculationFinished += MatrixCalculator_OnParallelCalculationFinished;
 
 do
 {
+    goToExit = false;
     calcFinished = false;
     bool correctInput = true;
     tokenSource = new CancellationTokenSource();
@@ -53,16 +56,13 @@ do
     Print("\nMatrix B:", ConsoleColor.Cyan);
     PrintMatrix(matB);
 
-    Print("Choose an operation, you'd like to perform: +, -, * (Use numpad...)", ConsoleColor.Yellow);
-    ConsoleKeyInfo key;
-    lock (m_consoleLock)
-    {
-        key = Console.ReadKey();
-    }
+    string key = Input("Choose an operation, you'd like to perform: +, -, *. \n\tAfter you chose press ENTER",
+        m_consoleLock,
+            ConsoleColor.Yellow);
 
-    switch (key.Key)
+    switch (key)
     {
-        case ConsoleKey.Add:
+        case "+":
             Print("\nAdd operation chosen!", ConsoleColor.Green);
             if (!matrixCalculator.AddSubtractPossible(matA, matB))
             {
@@ -80,7 +80,7 @@ do
                     matC = matrixCalculator.Add(matA, matB);
             }
             break;
-        case ConsoleKey.Subtract:
+        case "-":
             Print("\nSubtract operation chosen!", ConsoleColor.Green);
             if (!matrixCalculator.AddSubtractPossible(matA, matB))
             {
@@ -97,7 +97,7 @@ do
                     matC = matrixCalculator.Subtract(matA, matB);
             }
             break;
-        case ConsoleKey.Multiply:
+        case "*":
             Print("\nMultiplication operation chosen!", ConsoleColor.Green);
             if (!matrixCalculator.MultiplicationPossible(matA, matB))
             {
@@ -126,6 +126,20 @@ do
         PrintMatrix(matC);
     }
 
+    while (matrixCalculator.Parallelism)
+    {
+        bool temp = false;
+        lock (goToExitLoc)
+        {
+            temp = goToExit;
+        }
+
+        if (temp)
+            break;
+
+        Thread.Sleep(TimeSpan.FromSeconds(1));
+    }
+
 } while (!KeyPressed(ConsoleKey.Escape, "\nIf you want to exit, press esc, to continue - press any key.", ConsoleColor.Yellow));
 
 static void PrintMatrix(double[,] mat)
@@ -137,15 +151,19 @@ static void PrintMatrix(double[,] mat)
     object consoleLock = new object();
     if (row > 50 || col > 50)
     {
-        Print("To big matrix for print! Do you want to print? [Y/N]", ConsoleColor.Yellow);
-        ConsoleKey key;
-        lock (consoleLock)
-        {
-            key = Console.ReadKey().Key;
-        }
+        
+        
+        string inp = Input(
+            "To big matrix for print! Do you want to print? [Y/N] \n\t Don't forget to press ENTER.",
+            consoleLock,
+            ConsoleColor.Yellow);
 
-        if (key == ConsoleKey.N)
-            return;
+        switch (inp.ToLower())
+        {
+            case "n":
+            case "т":
+                return;
+        }
     }
 
     for (long i = 0; i < row; ++i)
@@ -194,9 +212,14 @@ void MatrixCalculator_OnParallelCalculationFinished(string obj, double[,] mat)
 {
     stopwatch.Stop();
     Print($"Parallel {obj} of matrices Finished... Elapsed time: {stopwatch.Elapsed.Seconds} s",
+        m_consoleLock,
         ConsoleColor.Green);
     calcFinished = true;
     PrintMatrix(mat);
+    lock (goToExitLoc)
+    {
+        goToExit = true;
+    }
 }
 
 void MatrixCalculator_OnCalculationStarted(string operation)
@@ -205,27 +228,34 @@ void MatrixCalculator_OnCalculationStarted(string operation)
 
     bool cancel = false;
     Print($"Calculation of matrix {operation} started. Please wait.", ConsoleColor.Green);
-    Print("Press C to stop calculation.", ConsoleColor.Yellow);
+    Print("Press C to stop calculation. Don't forget to press ENTER.", ConsoleColor.Yellow);
     while (!calcFinished)
     {
-        ConsoleKeyInfo key;
+        string key;
         lock (m_consoleLock)
         {
-            key = Console.ReadKey();
+            key = Console.ReadLine();
         }
-        if (key.Key == ConsoleKey.C)
+        switch (key.ToLower())
         {
-            tokenSource?.Cancel();
-            lock (m_consoleLock)
-            {
-                Print($"Cancellation of matrix {operation} requested...", ConsoleColor.Cyan);
-                cancel = true;
-            }
+            case "c":
+            case "с":
+                tokenSource?.Cancel();
+                lock (m_consoleLock)
+                {
+                    Print($"Cancellation of matrix {operation} requested...", ConsoleColor.Cyan);
+                    cancel = true;
+                }
+                break;
         }
     }
 
     if (cancel)
     {
-        Print($"{operation} was cancelled!", ConsoleColor.Green);
+        Print($"{operation} was cancelled!", m_consoleLock, ConsoleColor.Green);
+        lock (goToExitLoc)
+        { 
+            goToExit = true;
+        }
     }
 }

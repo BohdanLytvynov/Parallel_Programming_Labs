@@ -1,0 +1,43 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <!-- Add Controls for Previewer Here -->
+      <!--<Label Classes="Title" Content="Matrix Calculator" />-->
+        <!--<Border Classes="MainBorder" Width="100" Height="100"/>-->
+        <!--<GridSplitter Classes="Vertical"/>-->
+    </Border>
+  </Design.PreviewWith>
+  <!-- Add Styles Here -->
+  <Style Selector="Label.Title">
+		<Style.Setters>
+			<Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style.Setters>
+  </Style>
+
+  <Style Selector="Border.MainBorder">
+		<Style.Setters>
+			<Setter Property="BorderThickness" Value="1"/>
+		    <Setter Property="BorderBrush" Value="black"/>
+            <Setter Property="CornerRadius" Value="6"/>
+        </Style.Setters>
+  </Style>
+
+  <Style Selector="GridSplitter.Vertical">
+	  <Style.Setters>
+          <Setter Property="Width" Value="7"/>
+          <Setter Property="Background" Value="black"/>
+          <Setter Property="HorizontalAlignment" Value="Stretch"/>
+          <Setter Property="VerticalAlignment" Value="Stretch"/>
+      </Style.Setters>
+  </Style>
+
+  <Style Selector="Border.DialogHeaderWrapper">
+		<Style.Setters>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style.Setters>
+  </Style>
+</Styles>
