@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabWork5", "..\LabWork5\Lab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabWork5_AvaloniaUI", "..\LabWork5_AvaloniaUI\LabWork5_AvaloniaUI.csproj", "{2692E74F-C8AD-4194-9177-5942322D550E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabWork6", "..\LabWork6\LabWork6.csproj", "{4127CF5A-5CDF-4468-8E12-B48470FF5256}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{2692E74F-C8AD-4194-9177-5942322D550E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2692E74F-C8AD-4194-9177-5942322D550E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2692E74F-C8AD-4194-9177-5942322D550E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4127CF5A-5CDF-4468-8E12-B48470FF5256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4127CF5A-5CDF-4468-8E12-B48470FF5256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4127CF5A-5CDF-4468-8E12-B48470FF5256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4127CF5A-5CDF-4468-8E12-B48470FF5256}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
