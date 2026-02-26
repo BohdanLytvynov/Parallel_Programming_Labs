@@ -1,0 +1,45 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:LabWork7.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="LabWork7.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="{Binding Title}">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceInclude Source="avares://LabWork7/Templates/DataTemplates.axaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.Styles>
+		<StyleInclude Source="avares://LabWork7/Styles/MainWindowStyles.axaml"/>
+    </Window.Styles>
+
+    <Grid RowDefinitions="45, 60*, 45"
+          ShowGridLines="{Binding ShowGridLines}">
+        <TextBlock Text="Welcome to the PI calculator" Classes="Header"/>
+		<StackPanel Orientation="Vertical" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+                        Margin="0,15,30,0">
+                <TextBlock Text="Select Language:" Margin="0,0,20,0" Classes="Text"/>
+                <ComboBox ItemsSource="{Binding LanguageList}"
+                          ItemTemplate="{StaticResource LangTemplate}"
+                          />
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+
+</Window>

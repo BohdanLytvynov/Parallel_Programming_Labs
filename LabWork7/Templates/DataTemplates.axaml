@@ -1,0 +1,9 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="using:LabWork7.Models.Languages"
+                    >
+    <DataTemplate x:Key="LangTemplate" x:DataType="vm:LanguageVM">
+		<TextBlock Text="{Binding LanguageName}"/>
+    </DataTemplate>
+  <!-- Add Resources Here -->
+</ResourceDictionary>
