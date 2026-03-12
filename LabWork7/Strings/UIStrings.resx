@@ -150,8 +150,14 @@
   <data name="OperInProg" xml:space="preserve">
     <value>Calculation in progress...</value>
   </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>seconds</value>
+  </data>
   <data name="SelectLang" xml:space="preserve">
     <value>Select Language:</value>
+  </data>
+  <data name="TimeElapsed" xml:space="preserve">
+    <value>Time elapsed:</value>
   </data>
   <data name="UkrLang" xml:space="preserve">
     <value>Ukrainian</value>

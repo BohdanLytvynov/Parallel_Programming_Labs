@@ -34,8 +34,8 @@
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Right"
                     Margin="0,5,50,0">
-			<Button Content="{x:Static uiStr:UIStrings.OkBtn}" Margin="0,0,20,0" Click="OnOkPressed"/>
-            <Button Content="{x:Static uiStr:UIStrings.CancelBtn}" Click="OnCancelPressed"/>
+			<Button Content="{x:Static uiStr:UIStrings.OkBtn}" Margin="0,0,20,0" Click="OnOkPressed" x:Name="OkBtn"/>
+            <Button Content="{x:Static uiStr:UIStrings.CancelBtn}" Click="OnCancelPressed" x:Name="CancelBtn"/>
         </StackPanel>
     </StackPanel>
 

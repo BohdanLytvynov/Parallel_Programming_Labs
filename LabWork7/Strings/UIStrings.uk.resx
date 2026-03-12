@@ -150,8 +150,14 @@
   <data name="OperInProg" xml:space="preserve">
     <value>Рахуємо...</value>
   </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>секунд</value>
+  </data>
   <data name="SelectLang" xml:space="preserve">
     <value>Оберіть мову:</value>
+  </data>
+  <data name="TimeElapsed" xml:space="preserve">
+    <value>Часу пройшло:</value>
   </data>
   <data name="UkrLang" xml:space="preserve">
     <value>Українська</value>

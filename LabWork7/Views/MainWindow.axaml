@@ -59,10 +59,17 @@
 					Margin="20,30,0,0"
 					Command="{Binding CalculateCommand}"/>
 
-			<TextBlock Text="{Binding Result, 
-			UpdateSourceTrigger=PropertyChanged,
-			StringFormat='{x:Static uiStr:UIStrings.CalcRes}: {0}'}"
-					   Margin="20,30,0,0"/>
+			<StackPanel Orientation="Horizontal" Margin="20,30,0,0">
+				<TextBlock Text="{x:Static uiStr:UIStrings.CalcRes}"/>
+				<TextBlock Text="{Binding Result, 
+			UpdateSourceTrigger=PropertyChanged}" Margin="5,0,0,0"
+					   />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="20,10,0,0">
+				<TextBlock Text="{x:Static uiStr:UIStrings.TimeElapsed}"/>
+				<TextBlock Text="{Binding TimeElapsed, UpdateSourceTrigger=PropertyChanged}" Margin="5,0,0,0"/>
+				<TextBlock Text="{x:Static uiStr:UIStrings.Seconds}" Margin="5,0,0,0"/>
+			</StackPanel>
 		</StackPanel>
 	</Grid>
 

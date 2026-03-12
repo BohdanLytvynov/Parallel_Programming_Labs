@@ -11,6 +11,7 @@ using LabWork7.Strings;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.IO;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
@@ -38,6 +39,9 @@ namespace LabWork7.ViewModels
         public string Title { get; }
         public bool ShowGridLines { get; set; }
         public ObservableCollection<LanguageVM> LanguageList { get; }
+
+        [ObservableProperty]
+        private double timeElapsed;
 
         [ObservableProperty]
         private int selectedLangIndex;
@@ -133,7 +137,7 @@ namespace LabWork7.ViewModels
 
             box.SetMsgBoxHeader(AppStrings.WarningKey, new SolidColorBrush(Colors.Orange));
             box.SetMsg(AppStrings.ReloadMsg);
-
+            box.SetCancelButtonVisibility(false);
             box.OkPressed += () => { box.Close(); };
             box.CancelPressed += () => { box.Close(); };
 
@@ -181,11 +185,13 @@ namespace LabWork7.ViewModels
             m_CalculationProgress = new Progress<double>(dialog.UpdateProgress);
             BlockScreenVisible = true;
             dialog.Show(Desktop.MainWindow);
-
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             var res = await m_asyncPICalculator.CalculateAsync(
                 m_NumOfSteps, m_NumOfThreads,
                 m_CalculationProgress);
-
+            stopwatch.Stop();
+            TimeElapsed = stopwatch.Elapsed.TotalSeconds;
             dialog.CancelClicked -= Dialog_CancelClicked;
             dialog.Close();
             BlockScreenVisible = false;

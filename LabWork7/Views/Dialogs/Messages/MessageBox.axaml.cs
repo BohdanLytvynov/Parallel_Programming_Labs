@@ -15,6 +15,9 @@ public partial class MessageBox : Window
     private TextBlock m_MsgTextBlock;
     private TextBlock m_HeaderTextBlock;
 
+    private Button m_OkButton;
+    private Button m_CancelButton;
+
     public MessageBox()
     {
         InitializeComponent();
@@ -24,6 +27,12 @@ public partial class MessageBox : Window
 
         m_HeaderTextBlock = this.FindControl<TextBlock>("MsgHeader") ?? 
             throw new NullReferenceException("Unable to find textblock for dialog header display!");
+
+        m_OkButton = this.FindControl<Button>("OkBtn") ??
+            throw new NullReferenceException("Unable to find Ok Button!");
+
+        m_CancelButton = this.FindControl<Button>("CancelBtn") ??
+            throw new NullReferenceException("Unable to find Cancel Button!");
     }
 
     public void SetMsg(string msg)
@@ -45,5 +54,15 @@ public partial class MessageBox : Window
     public void OnCancelPressed(object o, RoutedEventArgs e)
     { 
         CancelPressed?.Invoke();
+    }
+
+    public void SetCancelButtonVisibility(bool v)
+    { 
+        m_CancelButton.IsVisible = v;
+    }
+
+    public void SetOkButtonVisibility(bool v)
+    { 
+        m_OkButton.IsVisible = v;
     }
 }

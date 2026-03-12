@@ -160,11 +160,29 @@ namespace LabWork7.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to seconds.
+        /// </summary>
+        public static string Seconds {
+            get {
+                return ResourceManager.GetString("Seconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Language:.
         /// </summary>
         public static string SelectLang {
             get {
                 return ResourceManager.GetString("SelectLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time elapsed:.
+        /// </summary>
+        public static string TimeElapsed {
+            get {
+                return ResourceManager.GetString("TimeElapsed", resourceCulture);
             }
         }
         
