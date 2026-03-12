@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="LabWork7.MessageBox"
+        xmlns:appStr="using:LabWork7.Strings"
+        xmlns:uiStr="using:LabWork7.Strings"
+        Title="MessageBox"
+        Width="400"
+        Height="180"
+        MinWidth="400"
+        MinHeight="180"
+        MaxWidth="400"
+        MaxHeight="180">
+    <Window.Styles>
+		<StyleInclude Source="avares://LabWork7/Styles/DialogCommonStyles.axaml"/>
+    </Window.Styles>
+
+    <StackPanel>
+        <Border Classes="dialog-border">
+		    <TextBlock 
+            Classes="dialog-title"
+            Text="{x:Static appStr:AppStrings.AppTitle}"/>
+        </Border>
+        <TextBlock x:Name="MsgHeader" FontSize="20"
+                   Margin="0,5,0,0"
+                   HorizontalAlignment="Center"/>
+        <Border Classes="dialog-border" Margin="15,5"
+                CornerRadius="5">
+			<TextBlock x:Name="Msg"/>
+        </Border>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,5,50,0">
+			<Button Content="{x:Static uiStr:UIStrings.OkBtn}" Margin="0,0,20,0" Click="OnOkPressed"/>
+            <Button Content="{x:Static uiStr:UIStrings.CancelBtn}" Click="OnCancelPressed"/>
+        </StackPanel>
+    </StackPanel>
+
+</Window>

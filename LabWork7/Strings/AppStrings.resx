@@ -120,4 +120,16 @@
   <data name="AppTitle" xml:space="preserve">
     <value>PI Calculator App</value>
   </data>
+  <data name="ErrorKey" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="InfoKey" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="ReloadMsg" xml:space="preserve">
+    <value>This changes require application restart!</value>
+  </data>
+  <data name="WarningKey" xml:space="preserve">
+    <value>Warninig</value>
+  </data>
 </root>

@@ -22,7 +22,7 @@ namespace LabWork7.Strings {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AppStrings {
+    public class AppStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace LabWork7.Strings {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LabWork7.Strings.AppStrings", typeof(AppStrings).Assembly);
@@ -51,7 +51,7 @@ namespace LabWork7.Strings {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,9 +63,45 @@ namespace LabWork7.Strings {
         /// <summary>
         ///   Looks up a localized string similar to PI Calculator App.
         /// </summary>
-        internal static string AppTitle {
+        public static string AppTitle {
             get {
                 return ResourceManager.GetString("AppTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string ErrorKey {
+            get {
+                return ResourceManager.GetString("ErrorKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string InfoKey {
+            get {
+                return ResourceManager.GetString("InfoKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This changes require application restart!.
+        /// </summary>
+        public static string ReloadMsg {
+            get {
+                return ResourceManager.GetString("ReloadMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warninig.
+        /// </summary>
+        public static string WarningKey {
+            get {
+                return ResourceManager.GetString("WarningKey", resourceCulture);
             }
         }
     }

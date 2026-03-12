@@ -117,46 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CalcButtonContent" xml:space="preserve">
-    <value>Calculate</value>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Пі калькулятор</value>
   </data>
-  <data name="CalcRes" xml:space="preserve">
-    <value>Calculation result:</value>
+  <data name="ErrorKey" xml:space="preserve">
+    <value>Помилка</value>
   </data>
-  <data name="CancelBtn" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="InfoKey" xml:space="preserve">
+    <value>Інформація</value>
   </data>
-  <data name="Empty_field" xml:space="preserve">
-    <value>Field can't be empty!</value>
+  <data name="ReloadMsg" xml:space="preserve">
+    <value>Ці зміни вимагають перезапуск додатку</value>
   </data>
-  <data name="EngLang" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="Incorrect_range" xml:space="preserve">
-    <value>Value must be greater then zero!</value>
-  </data>
-  <data name="NAN_Msg" xml:space="preserve">
-    <value>Not a number!</value>
-  </data>
-  <data name="NumOfStepsWatermark" xml:space="preserve">
-    <value>Number of steps</value>
-  </data>
-  <data name="NumOfThreadsWatermark" xml:space="preserve">
-    <value>Number of Threads</value>
-  </data>
-  <data name="OkBtn" xml:space="preserve">
-    <value>Ok</value>
-  </data>
-  <data name="OperInProg" xml:space="preserve">
-    <value>Calculation in progress...</value>
-  </data>
-  <data name="SelectLang" xml:space="preserve">
-    <value>Select Language:</value>
-  </data>
-  <data name="UkrLang" xml:space="preserve">
-    <value>Ukrainian</value>
-  </data>
-  <data name="Welcome" xml:space="preserve">
-    <value>Welcome to the PI Calculator</value>
+  <data name="WarningKey" xml:space="preserve">
+    <value>Увага</value>
   </data>
 </root>

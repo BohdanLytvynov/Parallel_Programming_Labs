@@ -118,45 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CalcButtonContent" xml:space="preserve">
-    <value>Calculate</value>
+    <value>Обчислити</value>
   </data>
   <data name="CalcRes" xml:space="preserve">
-    <value>Calculation result:</value>
+    <value>Результат обчислень:</value>
   </data>
   <data name="CancelBtn" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Відмінити</value>
   </data>
   <data name="Empty_field" xml:space="preserve">
-    <value>Field can't be empty!</value>
+    <value>Поле не може бути порожнім!</value>
   </data>
   <data name="EngLang" xml:space="preserve">
-    <value>English</value>
+    <value>Англійська</value>
   </data>
   <data name="Incorrect_range" xml:space="preserve">
-    <value>Value must be greater then zero!</value>
+    <value>Значення має бути більше за 0!</value>
   </data>
   <data name="NAN_Msg" xml:space="preserve">
-    <value>Not a number!</value>
+    <value>Не число!</value>
   </data>
   <data name="NumOfStepsWatermark" xml:space="preserve">
-    <value>Number of steps</value>
+    <value>Кількість кроків</value>
   </data>
   <data name="NumOfThreadsWatermark" xml:space="preserve">
-    <value>Number of Threads</value>
+    <value>Кількість потоків</value>
   </data>
   <data name="OkBtn" xml:space="preserve">
-    <value>Ok</value>
+    <value>Так</value>
   </data>
   <data name="OperInProg" xml:space="preserve">
-    <value>Calculation in progress...</value>
+    <value>Рахуємо...</value>
   </data>
   <data name="SelectLang" xml:space="preserve">
-    <value>Select Language:</value>
+    <value>Оберіть мову:</value>
   </data>
   <data name="UkrLang" xml:space="preserve">
-    <value>Ukrainian</value>
+    <value>Українська</value>
   </data>
   <data name="Welcome" xml:space="preserve">
-    <value>Welcome to the PI Calculator</value>
+    <value>Вітаємо вас в Пі калькуляторі</value>
   </data>
 </root>

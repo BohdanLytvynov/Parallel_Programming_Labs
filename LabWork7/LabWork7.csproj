@@ -23,6 +23,10 @@
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.3" />
   </ItemGroup>
 
@@ -45,12 +49,19 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Strings\AppStrings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Strings\UIStrings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UIStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Strings\UIStrings.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Dialogs\" />
   </ItemGroup>
 </Project>

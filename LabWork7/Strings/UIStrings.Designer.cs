@@ -22,7 +22,7 @@ namespace LabWork7.Strings {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class UIStrings {
+    public class UIStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace LabWork7.Strings {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LabWork7.Strings.UIStrings", typeof(UIStrings).Assembly);
@@ -51,12 +51,138 @@ namespace LabWork7.Strings {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculate.
+        /// </summary>
+        public static string CalcButtonContent {
+            get {
+                return ResourceManager.GetString("CalcButtonContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculation result:.
+        /// </summary>
+        public static string CalcRes {
+            get {
+                return ResourceManager.GetString("CalcRes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string CancelBtn {
+            get {
+                return ResourceManager.GetString("CancelBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field can&apos;t be empty!.
+        /// </summary>
+        public static string Empty_field {
+            get {
+                return ResourceManager.GetString("Empty_field", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string EngLang {
+            get {
+                return ResourceManager.GetString("EngLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value must be greater then zero!.
+        /// </summary>
+        public static string Incorrect_range {
+            get {
+                return ResourceManager.GetString("Incorrect_range", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not a number!.
+        /// </summary>
+        public static string NAN_Msg {
+            get {
+                return ResourceManager.GetString("NAN_Msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of steps.
+        /// </summary>
+        public static string NumOfStepsWatermark {
+            get {
+                return ResourceManager.GetString("NumOfStepsWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of Threads.
+        /// </summary>
+        public static string NumOfThreadsWatermark {
+            get {
+                return ResourceManager.GetString("NumOfThreadsWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        public static string OkBtn {
+            get {
+                return ResourceManager.GetString("OkBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculation in progress....
+        /// </summary>
+        public static string OperInProg {
+            get {
+                return ResourceManager.GetString("OperInProg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Language:.
+        /// </summary>
+        public static string SelectLang {
+            get {
+                return ResourceManager.GetString("SelectLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ukrainian.
+        /// </summary>
+        public static string UkrLang {
+            get {
+                return ResourceManager.GetString("UkrLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to the PI Calculator.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }

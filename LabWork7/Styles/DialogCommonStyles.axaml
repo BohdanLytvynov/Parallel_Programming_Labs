@@ -1,0 +1,24 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20,10">
+      <!-- Add Controls for Previewer Here -->
+      <!--<TextBlock Classes="dialog-title" Text="Title Example ksdvfbkdlfkvbflkdbdfv"/>-->
+    </Border>
+  </Design.PreviewWith>
+
+    <Style Selector="TextBlock.dialog-title">
+		<Style.Setters>
+			<Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style.Setters>
+    </Style>
+
+    <Style Selector="Border.dialog-border">
+		<Style.Setters>
+			<Setter Property="BorderBrush" Value="black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style.Setters>
+    </Style>
+  <!-- Add Styles Here -->
+</Styles>

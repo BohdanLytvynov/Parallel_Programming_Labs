@@ -4,6 +4,9 @@ namespace LabWork7.BusinessLayer.PICalculators
 {
     public interface IAsyncPICalculator
     {
-        EventHandler<OnPiCalculationFinishedArgs>? OnCalculationFinished { get; set; }
+        Task CancelCalculationAsync();
+        Task<PiCalculationResult> CalculateAsync(
+            long numOfSteps, int numOfThreads, 
+            IProgress<double> progress = null);
     }
 }

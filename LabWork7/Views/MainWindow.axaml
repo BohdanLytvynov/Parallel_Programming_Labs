@@ -1,45 +1,69 @@
 <Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:LabWork7.ViewModels"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="LabWork7.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="{Binding Title}">
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:vm="using:LabWork7.ViewModels"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		x:Class="LabWork7.Views.MainWindow"
+		x:DataType="vm:MainWindowViewModel"
+		xmlns:uiStr="using:LabWork7.Strings"
+		Icon="/Assets/avalonia-logo.ico"
+		Title="{Binding Title}">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+		to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:MainWindowViewModel/>
+	</Design.DataContext>
 
-    <Window.Resources>
+	<Window.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceInclude Source="avares://LabWork7/Templates/DataTemplates.axaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
 
-    <Window.Styles>
+	<Window.Styles>
 		<StyleInclude Source="avares://LabWork7/Styles/MainWindowStyles.axaml"/>
-    </Window.Styles>
+	</Window.Styles>
 
-    <Grid RowDefinitions="45, 60*, 45"
-          ShowGridLines="{Binding ShowGridLines}">
-        <TextBlock Text="Welcome to the PI calculator" Classes="Header"/>
+	<Grid RowDefinitions="45, 60*, 45"
+		  ShowGridLines="{Binding ShowGridLines}">
+		<Rectangle Grid.Row="0" Grid.RowSpan="3" 
+				   Fill="#74a2cdb3" ZIndex="1" 
+				   IsVisible="{Binding BlockScreenVisible, UpdateSourceTrigger=PropertyChanged}"/>
+		<TextBlock Text="{x:Static uiStr:UIStrings.Welcome}" Classes="Header"/>
 		<StackPanel Orientation="Vertical" Grid.Row="1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
-                        Margin="0,15,30,0">
-                <TextBlock Text="Select Language:" Margin="0,0,20,0" Classes="Text"/>
-                <ComboBox ItemsSource="{Binding LanguageList}"
-                          ItemTemplate="{StaticResource LangTemplate}"
-                          />
-            </StackPanel>
-            
-        </StackPanel>
-    </Grid>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+						Margin="0,15,30,0">
+				<TextBlock Text="{x:Static uiStr:UIStrings.SelectLang}" Margin="0,0,20,0" Classes="Text"/>
+				<ComboBox ItemsSource="{Binding LanguageList}"
+						  SelectedIndex="{Binding SelectedLangIndex, 
+						  UpdateSourceTrigger=PropertyChanged}"
+						  ItemTemplate="{StaticResource LangTemplate}"
+						  />
+			</StackPanel>
+			<StackPanel HorizontalAlignment="Left" Margin="20,0,0,0">
+				<TextBox Watermark="{x:Static uiStr:UIStrings.NumOfStepsWatermark}"
+						 Text="{Binding NumOfSteps,
+						 UpdateSourceTrigger=PropertyChanged}"
+						 Margin="0,0,0,20"/>
+
+				<TextBox Watermark="{x:Static uiStr:UIStrings.NumOfThreadsWatermark}"
+						 Text="{Binding NumOfThreads,
+						 UpdateSourceTrigger=PropertyChanged}"/>
+			</StackPanel>
+
+			<Button Content="{x:Static uiStr:UIStrings.CalcButtonContent}"
+					Margin="20,30,0,0"
+					Command="{Binding CalculateCommand}"/>
+
+			<TextBlock Text="{Binding Result, 
+			UpdateSourceTrigger=PropertyChanged,
+			StringFormat='{x:Static uiStr:UIStrings.CalcRes}: {0}'}"
+					   Margin="20,30,0,0"/>
+		</StackPanel>
+	</Grid>
 
 </Window>
