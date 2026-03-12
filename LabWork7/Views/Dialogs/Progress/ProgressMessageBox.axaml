@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="LabWork7.ProgressMessageBox"
+        xmlns:appStr="using:LabWork7.Strings"        
+        Title="ProgressMessageBox"
+        Width="400"
+        Height="160"
+        MinHeight="160"
+        MinWidth="400"
+        MaxHeight="160"
+        MaxWidth="400">
+    <Window.Styles>
+		<StyleInclude Source="avares://LabWork7/Styles/DialogCommonStyles.axaml"/>
+    </Window.Styles>
+  <StackPanel>
+	  <Border BorderThickness="2" BorderBrush="Black">
+		  <TextBlock Classes="dialog-title"
+                     Text="{x:Static appStr:AppStrings.AppTitle}"
+                     />
+      </Border>
+      <TextBlock Text="{x:Static appStr:UIStrings.OperInProg}" Classes="dialog-title"
+                 Margin="0,20,0,0"/>
+      <ProgressBar Height="20"
+                   Margin="20,10,20,0"
+                   x:Name="progress"/>
+      <Button HorizontalAlignment="Center"
+              Margin="0,14,0,0"
+              Content="{x:Static appStr:UIStrings.CancelBtn}" Click="OnCancelClick"/>
+  </StackPanel>
+</Window>

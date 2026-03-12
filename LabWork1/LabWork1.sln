@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabWork5_AvaloniaUI", "..\L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabWork6", "..\LabWork6\LabWork6.csproj", "{4127CF5A-5CDF-4468-8E12-B48470FF5256}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabWork7", "..\LabWork7\LabWork7.csproj", "{B5CFD4EA-2201-4B53-9D82-BCC75369D0C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabWork7.BusinessLayer", "..\LabWork7.BusinessLayer\LabWork7.BusinessLayer.csproj", "{B93BA6C5-E71E-47C9-BBBE-54A71CBE97D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{4127CF5A-5CDF-4468-8E12-B48470FF5256}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4127CF5A-5CDF-4468-8E12-B48470FF5256}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4127CF5A-5CDF-4468-8E12-B48470FF5256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5CFD4EA-2201-4B53-9D82-BCC75369D0C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5CFD4EA-2201-4B53-9D82-BCC75369D0C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5CFD4EA-2201-4B53-9D82-BCC75369D0C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5CFD4EA-2201-4B53-9D82-BCC75369D0C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B93BA6C5-E71E-47C9-BBBE-54A71CBE97D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B93BA6C5-E71E-47C9-BBBE-54A71CBE97D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B93BA6C5-E71E-47C9-BBBE-54A71CBE97D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B93BA6C5-E71E-47C9-BBBE-54A71CBE97D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
